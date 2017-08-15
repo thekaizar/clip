@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="URL shortening" content="">
+    <meta name="Dom" content="">
+    <link rel="icon" href="static/favicon.ico">
+    <title>Cl.ip URL shortener</title>
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Custom styles -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='cover.css') }}">
+
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h1 class="masthead-brand"><a href="/">Cl.ip</a></h1>
+              <!--
+              <nav class="nav nav-masthead">
+                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="#">Contact</a>
+              </nav>
+              -->
+            </div>
+          </div>
+          <div class="inner cover">
+
+          {% if not short_url %}
+          <h1 class="cover-heading">Enter your URL</h1>
+          <div class="row">
+            <div class="col-*-*" >
+              <form class="form-inline" method="post"action="">
+                <div class="form-group">
+                  <input type="text" id="url" name="url" class="form-control input-lg chat-input" placeholder="URL" />
+                  <button type="submit" class="btn btn-lg btn-info">Submit</button>
+                </div>
+              </form>
+            </div>
+           </div>
+           {% block body %}
+           {% with messages = get_flashed_messages() %}
+           {% if messages %}
+           <div class=flashes>
+           {% for message in messages %}
+             <p class="lead">{{ message }}</p>
+           {% endfor %}
+           </div>
+           {% endif %}
+           {% endwith %}
+           {% endblock %}
+
+           {% else %}
+           <div class="row">
+            Enjoy, your URL is: <a href="{{short_url}}"> {{mask_url}}</a>
+           </div>
+           {% endif %}
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cl.ip URL shortener by Dom</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
