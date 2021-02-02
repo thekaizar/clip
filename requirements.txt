@@ -7,7 +7,7 @@ backports.ssl-match-hostname==3.5.0.1
 bcdoc==0.12.2
 bcolz==0.12.1
 beautifulsoup4==4.6.0
-bleach==2.0.0
+bleach==3.3.0
 boto==2.33.0
 botocore==0.73.0
 Bottleneck==1.2.1
