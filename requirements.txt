@@ -73,7 +73,7 @@ GraphLab-Create==2.1
 grpc-google-iam-v1==0.11.1
 grpcio==1.4.0
 html5lib==0.999999999
-httplib2==0.10.3
+httplib2==0.19.0
 idna==2.5
 inflection==0.3.1
 intervaltree==2.1.0
